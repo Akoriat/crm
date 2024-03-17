@@ -8,6 +8,6 @@ namespace crm.Models
         public int SubjectId { get; set; }
         [Required]
         public string SubjectName { get; set; }
-        public virtual IEnumerable<TeacherAndSubject>? TeacherAndSubjects { get; set; }
+        public virtual ICollection<Exercise>? Exercises { get; set; }
     }
 }

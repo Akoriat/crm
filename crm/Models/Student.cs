@@ -15,6 +15,8 @@ namespace crm.Models
         [Required]
         public string StudentPatronymic { get; set;}
         [Required]
+        [StringLength(8, ErrorMessage = "Длина строки должна быть ровно 8 символов")]
+        [MinLength(8, ErrorMessage = "Длина строки должна быть ровно 8 символов")]
         public string RecordBook { get; set;}
 
         [Required]

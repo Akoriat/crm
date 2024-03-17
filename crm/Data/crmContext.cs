@@ -20,6 +20,5 @@ namespace crm.Data
         public DbSet<crm.Models.Student> Student { get; set; } = default!;
         public DbSet<crm.Models.Subject> Subject { get; set; } = default!;
         public DbSet<crm.Models.Teacher> Teacher { get; set; } = default!;
-        public DbSet<crm.Models.TeacherAndSubject> TeacherAndSubject { get; set; } = default!;
     }
 }

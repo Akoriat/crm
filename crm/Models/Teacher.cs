@@ -12,7 +12,6 @@ namespace crm.Models
         public string TeacherSurname { get; set; }
         [Required]
         public string TeacherPatronymic { get; set; }
-
-        public virtual IEnumerable<TeacherAndSubject>? TeacherAndSubjects { get; set; }
+        public virtual ICollection<Exercise>? Exercises { get; set; }
     }
 }

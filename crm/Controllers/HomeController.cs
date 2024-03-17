@@ -48,7 +48,6 @@ namespace crm.Controllers
             lexa.Classrooms = await _lexa.Classroom.ToArrayAsync();
             lexa.Subjects = await _lexa.Subject.ToArrayAsync();
             lexa.Teachers = await _lexa.Teacher.ToArrayAsync();
-            lexa.TeacherAndSubjects = await _lexa.TeacherAndSubject.ToArrayAsync();
             lexa.Exercises = await _lexa.Exercise.ToArrayAsync();
             return View(lexa);
         }
