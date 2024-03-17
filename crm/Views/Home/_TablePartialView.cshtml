@@ -1,38 +1,7 @@
-﻿@model Association
+﻿@model IEnumerable<Exercise>
 @{
-    ViewData["Title"] = "Home Page";
-    ViewBag.Title = "Lexa";
 }
-
-<script>
-    function groupChanged(selectElement) {
-        var selectedGroupId = selectElement.value;
-        alert("функцииияияиия");
-        $.ajax({
-            type: "GET",
-            url: "/Home/GetGroupData",
-            data: { groupId: selectedGroupId },
-            success: function (data) {
-                alert("ФункциЯ работает");
-                $('#oleg' table).html(data);
-            },
-            error: function () {
-                alert("Ошибка при выполнении запроса");
-            }
-        });
-    }
-</script>
-
-
-
-<h1>Расписание</h1>
-
-<div>
-    @Html.DropDownList("Group", ViewBag.GroupList as SelectList, "Выберите группу", new { @class = "form-control", onchange = "groupChanged(this)"})
-</div>
-<div id="oleg">
-    @Html.Partial("_TablePartialView")
-   @*  <table>
+    <table>
         <thead>
             <tr>
                 <th>Время</th>
@@ -46,8 +15,23 @@
         </thead>
         <tr>
             <th>8:20 - 9:50</th>
-            <td></td>
-            <td></td>
+        @if (Model != null)
+        {
+            @if (Model.ElementAt(0).TeacherID == null)
+            {
+                <td> lexa null</td>
+            }
+            else
+            {
+                <td> lexa ne null</td>
+            }
+
+        }
+        else
+        {
+            <td>idi nahoi</td>
+        }
+        <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -89,6 +73,4 @@
             <td></td>
             <td></td>
         </tr>
-    </table> *@
-
-</div>
+    </table>

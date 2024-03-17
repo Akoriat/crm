@@ -1,6 +1,7 @@
 using crm.Data;
 using crm.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
@@ -42,44 +43,28 @@ namespace crm.Controllers
 
         public async Task<IActionResult> Index()
         {
-            Association lexa = new Association();
-            lexa.Students = await _lexa.Student.ToArrayAsync();
-            lexa.Groups = await _lexa.Group.ToArrayAsync();
-            lexa.Classrooms = await _lexa.Classroom.ToArrayAsync();
-            lexa.Subjects = await _lexa.Subject.ToArrayAsync();
-            lexa.Teachers = await _lexa.Teacher.ToArrayAsync();
-            lexa.Exercises = await _lexa.Exercise.ToArrayAsync();
-            return View(lexa);
-        }
-
-        public ActionResult GetDataByCellId(string cellId)
-        {
-            // Здесь добавьте логику для получения данных из класса Association и возврата их
-            // Например, можно использовать switch для различения id ячеек
-            Association Lexa = new Association();
-            //Lexa.Exercise
-
-            string data;
-            switch (cellId)
-            {
-                case "Pon8_20":
-                    data = "Данные для ячейки Понедельник 8:20";
-                    break;
-                // Добавьте другие case для остальных cellId
-
-                default:
-                    data = "Нет данных";
-                    break;
-            }
-
-            return Content(data);
-        }
-
-
-        public IActionResult Privacy()
-        {
+            //Association lexa = new Association();
+            //lexa.Students = await _lexa.Student.ToArrayAsync();
+            //lexa.Groups = await _lexa.Group.ToArrayAsync();
+            //lexa.Classrooms = await _lexa.Classroom.ToArrayAsync();
+            //lexa.Subjects = await _lexa.Subject.ToArrayAsync();
+            //lexa.Teachers = await _lexa.Teacher.ToArrayAsync();
+            //lexa.Exercises = await _lexa.Exercise.ToArrayAsync();
+            var groups = _lexa.Group.ToList();
+            ViewBag.GroupList = new SelectList(groups, "GroupId", "GroupName");
             return View();
         }
+
+
+        public ActionResult GetGroupData(int groupId)
+        {
+            var exercisess = from p in _lexa.Exercise.ToList()
+                             where p.GroupID == groupId
+                             select p;
+            Console.WriteLine("В контролере " + groupId);
+            return PartialView("_TablePartialView", exercisess);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

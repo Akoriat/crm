@@ -18,8 +18,8 @@ namespace crm.Models
         public int GroupID { get; set; }
 
         [Required]
-        [TimeRange]
         [DataType(DataType.Time)]
+        [TimeRange]
         public DateTime Time { get; set; }
 
         [Required]
@@ -48,10 +48,5 @@ namespace crm.Models
                 return false;
             }
         }
-//        8:20 - 9:50 						
-//10:00 - 11:35 						
-//12:05 - 13:40 						
-//13:50 - 15:25 						
-//15:35 - 17:10 	
     }
 }
