@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace crm.Migrations
 {
     /// <inheritdoc />
-    public partial class Inital : Migration
+    public partial class New_Start : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -124,7 +124,8 @@ namespace crm.Migrations
                     TeacherID = table.Column<int>(type: "int", nullable: false),
                     ClassroomID = table.Column<int>(type: "int", nullable: false),
                     GroupID = table.Column<int>(type: "int", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DayOfWeek = table.Column<int>(type: "int", nullable: false),
                     TeacherAndSubjectId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>

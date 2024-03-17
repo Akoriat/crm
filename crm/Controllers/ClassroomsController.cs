@@ -62,6 +62,7 @@ namespace crm.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Message = "Запрос не прошел валидацию";
             return View(classroom);
         }
 

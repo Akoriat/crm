@@ -50,8 +50,8 @@ namespace crm.Migrations
                     b.Property<int>("ClassroomID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("DayOfWeek")
+                        .HasColumnType("int");
 
                     b.Property<int>("GroupID")
                         .HasColumnType("int");
@@ -64,6 +64,9 @@ namespace crm.Migrations
 
                     b.Property<int>("TeacherID")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("ExerciseId");
 

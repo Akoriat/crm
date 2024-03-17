@@ -49,8 +49,8 @@ namespace crm.Controllers
         // GET: TeacherAndSubjects/Create
         public IActionResult Create()
         {
-            ViewData["SubjectId"] = new SelectList(_context.Subject, "SubjectId", "SubjectId");
-            ViewData["TeacherId"] = new SelectList(_context.Teacher, "TeacherId", "TeacherId");
+            ViewData["SubjectId"] = new SelectList(_context.Subject, "SubjectId", "SubjectName");
+            ViewData["TeacherId"] = new SelectList(_context.Teacher, "TeacherId", "TeacherFirstName");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace crm.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SubjectId"] = new SelectList(_context.Subject, "SubjectId", "SubjectId", teacherAndSubject.SubjectId);
-            ViewData["TeacherId"] = new SelectList(_context.Teacher, "TeacherId", "TeacherId", teacherAndSubject.TeacherId);
+            ViewData["SubjectId"] = new SelectList(_context.Subject, "SubjectId", "SubjectName", teacherAndSubject.SubjectId);
+            ViewData["TeacherId"] = new SelectList(_context.Teacher, "TeacherId", "TeacherFirstName", teacherAndSubject.TeacherId);
             return View(teacherAndSubject);
         }
 
@@ -85,8 +85,8 @@ namespace crm.Controllers
             {
                 return NotFound();
             }
-            ViewData["SubjectId"] = new SelectList(_context.Subject, "SubjectId", "SubjectId", teacherAndSubject.SubjectId);
-            ViewData["TeacherId"] = new SelectList(_context.Teacher, "TeacherId", "TeacherId", teacherAndSubject.TeacherId);
+            ViewData["SubjectId"] = new SelectList(_context.Subject, "SubjectId", "SubjectName", teacherAndSubject.SubjectId);
+            ViewData["TeacherId"] = new SelectList(_context.Teacher, "TeacherId", "TeacherFirstName", teacherAndSubject.TeacherId);
             return View(teacherAndSubject);
         }
 
@@ -122,8 +122,8 @@ namespace crm.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SubjectId"] = new SelectList(_context.Subject, "SubjectId", "SubjectId", teacherAndSubject.SubjectId);
-            ViewData["TeacherId"] = new SelectList(_context.Teacher, "TeacherId", "TeacherId", teacherAndSubject.TeacherId);
+            ViewData["SubjectId"] = new SelectList(_context.Subject, "SubjectId", "SubjectName", teacherAndSubject.SubjectId);
+            ViewData["TeacherId"] = new SelectList(_context.Teacher, "TeacherId", "TeacherFirstName", teacherAndSubject.TeacherId);
             return View(teacherAndSubject);
         }
 

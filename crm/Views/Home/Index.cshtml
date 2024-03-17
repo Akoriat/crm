@@ -1,8 +1,90 @@
-﻿@{
+﻿@model Association
+@{
     ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Lexa";
 }
+@{
+    
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<script>
+    function fillCell(cellId) {
+        $.ajax({
+            url: '/Home/GetDataByCellId', // Предполагается, что у вас есть контроллер HomeController соответствующий этому маршруту
+            type: 'GET',
+            data: { cellId: cellId },
+            success: function(data) {
+                $('#' + cellId).text(data); // Заполняем содержимое ячейки данными полученными с сервера
+            },
+            error: function() {
+                alert('Произошла ошибка при загрузке данных');
+            }
+        });
+    }
+</script>
+
+
+<h1>Расписание</h1>
+
+<div class="schedule">
+    <table>
+        <thead>
+            <tr>
+                <th>Время</th>
+                <th>Понедельник</th>
+                <th>Вторник</th>
+                <th>Среда</th>
+                <th>Четверг</th>
+                <th>Пятница</th>
+                <th>Суббота</th>
+            </tr>
+        </thead>
+        <tr>
+            <th>8:20 - 9:50</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>10:00 - 11:35</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>12:05 - 13:40</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>13:50 - 15:25</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>15:35 - 17:10</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
 </div>

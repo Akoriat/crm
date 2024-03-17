@@ -13,7 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Date)
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DayOfWeek)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Subject)
@@ -34,7 +37,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DayOfWeek)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Subject.SubjectId)

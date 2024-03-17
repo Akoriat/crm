@@ -52,9 +52,9 @@ namespace crm.Controllers
         public IActionResult Create()
         {
             ViewData["ClassroomID"] = new SelectList(_context.Classroom, "Id", "Id");
-            ViewData["GroupID"] = new SelectList(_context.Set<Group>(), "GroupId", "GroupId");
-            ViewData["SubjectID"] = new SelectList(_context.Set<Subject>(), "SubjectId", "SubjectId");
-            ViewData["TeacherID"] = new SelectList(_context.Set<Teacher>(), "TeacherId", "TeacherId");
+            ViewData["GroupID"] = new SelectList(_context.Group, "GroupId", "GroupId");
+            ViewData["SubjectID"] = new SelectList(_context.Subject, "SubjectId", "SubjectId");
+            ViewData["TeacherID"] = new SelectList(_context.Teacher, "TeacherId", "TeacherId");
             return View();
         }
 
@@ -63,7 +63,7 @@ namespace crm.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ExerciseId,SubjectID,TeacherID,ClassroomID,GroupID,Date")] Exercise exercise)
+        public async Task<IActionResult> Create([Bind("ExerciseId,SubjectID,TeacherID,ClassroomID,GroupID,Time,DayOfWeek")] Exercise exercise)
         {
             if (ModelState.IsValid)
             {
@@ -72,9 +72,9 @@ namespace crm.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClassroomID"] = new SelectList(_context.Classroom, "Id", "Id", exercise.ClassroomID);
-            ViewData["GroupID"] = new SelectList(_context.Set<Group>(), "GroupId", "GroupId", exercise.GroupID);
-            ViewData["SubjectID"] = new SelectList(_context.Set<Subject>(), "SubjectId", "SubjectId", exercise.SubjectID);
-            ViewData["TeacherID"] = new SelectList(_context.Set<Teacher>(), "TeacherId", "TeacherId", exercise.TeacherID);
+            ViewData["GroupID"] = new SelectList(_context.Group, "GroupId", "GroupId", exercise.GroupID);
+            ViewData["SubjectID"] = new SelectList(_context.Subject, "SubjectId", "SubjectId", exercise.SubjectID);
+            ViewData["TeacherID"] = new SelectList(_context.Teacher, "TeacherId", "TeacherId", exercise.TeacherID);
             return View(exercise);
         }
 
@@ -92,9 +92,9 @@ namespace crm.Controllers
                 return NotFound();
             }
             ViewData["ClassroomID"] = new SelectList(_context.Classroom, "Id", "Id", exercise.ClassroomID);
-            ViewData["GroupID"] = new SelectList(_context.Set<Group>(), "GroupId", "GroupId", exercise.GroupID);
-            ViewData["SubjectID"] = new SelectList(_context.Set<Subject>(), "SubjectId", "SubjectId", exercise.SubjectID);
-            ViewData["TeacherID"] = new SelectList(_context.Set<Teacher>(), "TeacherId", "TeacherId", exercise.TeacherID);
+            ViewData["GroupID"] = new SelectList(_context.Group, "GroupId", "GroupId", exercise.GroupID);
+            ViewData["SubjectID"] = new SelectList(_context.Subject, "SubjectId", "SubjectId", exercise.SubjectID);
+            ViewData["TeacherID"] = new SelectList(_context.Teacher, "TeacherId", "TeacherId", exercise.TeacherID);
             return View(exercise);
         }
 
@@ -103,7 +103,7 @@ namespace crm.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ExerciseId,SubjectID,TeacherID,ClassroomID,GroupID,Date")] Exercise exercise)
+        public async Task<IActionResult> Edit(int id, [Bind("ExerciseId,SubjectID,TeacherID,ClassroomID,GroupID,Time,DayOfWeek")] Exercise exercise)
         {
             if (id != exercise.ExerciseId)
             {
@@ -131,9 +131,9 @@ namespace crm.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClassroomID"] = new SelectList(_context.Classroom, "Id", "Id", exercise.ClassroomID);
-            ViewData["GroupID"] = new SelectList(_context.Set<Group>(), "GroupId", "GroupId", exercise.GroupID);
-            ViewData["SubjectID"] = new SelectList(_context.Set<Subject>(), "SubjectId", "SubjectId", exercise.SubjectID);
-            ViewData["TeacherID"] = new SelectList(_context.Set<Teacher>(), "TeacherId", "TeacherId", exercise.TeacherID);
+            ViewData["GroupID"] = new SelectList(_context.Group, "GroupId", "GroupId", exercise.GroupID);
+            ViewData["SubjectID"] = new SelectList(_context.Subject, "SubjectId", "SubjectId", exercise.SubjectID);
+            ViewData["TeacherID"] = new SelectList(_context.Teacher, "TeacherId", "TeacherId", exercise.TeacherID);
             return View(exercise);
         }
 
