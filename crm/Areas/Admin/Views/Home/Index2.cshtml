@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Преподаватели";
+}
+<script>
+    function teacherChanged(selectElement) {
+        var selectedTeacherId = selectElement.value;
+        $.ajax({
+            type: "GET",
+            url: "Admin/Home/GetTeacherData",
+            data: { teacherId: selectedTeacherId },
+            success: function (data) {
+                $('#oleg2').html(data);
+            },
+            error: function () {
+                alert("Ошибка при выполнении запроса");
+            }
+        });
+    }
+</script>
+
+
+<h1>Расписание</h1>
+
+<div>
+    @Html.DropDownList("Teacher", ViewBag.TeacherList as SelectList, "Выберите преподавателя", new { @class = "form-control", onchange = "teacherChanged(this)" })
+</div>
+<div id="oleg2">Расписание</div>
+

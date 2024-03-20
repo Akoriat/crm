@@ -9,16 +9,16 @@ namespace crm.Data
 {
     public class crmContext : DbContext
     {
-        public crmContext (DbContextOptions<crmContext> options)
+        public crmContext(DbContextOptions<crmContext> options)
             : base(options)
         {
         }
 
-        public DbSet<crm.Models.Classroom> Classroom { get; set; } = default!;
-        public DbSet<crm.Models.Exercise> Exercise { get; set; } = default!;
-        public DbSet<crm.Models.Group> Group { get; set; } = default!;
-        public DbSet<crm.Models.Student> Student { get; set; } = default!;
-        public DbSet<crm.Models.Subject> Subject { get; set; } = default!;
-        public DbSet<crm.Models.Teacher> Teacher { get; set; } = default!;
+        public DbSet<Classroom> Classroom { get; set; } = default!;
+        public DbSet<Exercise> Exercise { get; set; } = default!;
+        public DbSet<Group> Group { get; set; } = default!;
+        public DbSet<Student> Student { get; set; } = default!;
+        public DbSet<Subject> Subject { get; set; } = default!;
+        public DbSet<Teacher> Teacher { get; set; } = default!;
     }
 }

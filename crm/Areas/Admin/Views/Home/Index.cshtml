@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Группы";
+}
+<script>
+    function groupChanged(selectElement) {
+        var selectedGroupId = selectElement.value;
+        $.ajax({
+            type: "GET",
+            url: "Admin/Home/GetGroupData",
+            data: { groupId: selectedGroupId },
+            success: function (data) {
+                $('#oleg').html(data);
+            },
+            error: function () {
+                alert("Ошибка при выполнении запроса");
+            }
+        });
+    }
+</script>
+
+
+<h1>Расписание</h1>
+
+<div>
+    @Html.DropDownList("Group", ViewBag.GroupList as SelectList, "Выберите группу", new { @class = "form-control", onchange = "groupChanged(this)"})
+</div>
+<div id="oleg">Расписание</div>

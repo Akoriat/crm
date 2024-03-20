@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace crm.Models
 {
+    [Index(nameof(ClassroomName), IsUnique = true)]
     public class Classroom
     {
         [Key]

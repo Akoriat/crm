@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using crm.Data;
+using crm.Areas.Admin.Data;
 
 #nullable disable
 
@@ -32,9 +32,12 @@ namespace crm.Migrations
 
                     b.Property<string>("ClassroomName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ClassroomId");
+
+                    b.HasIndex("ClassroomName")
+                        .IsUnique();
 
                     b.ToTable("Classroom");
                 });
@@ -62,8 +65,8 @@ namespace crm.Migrations
                     b.Property<int>("TeacherID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("datetime2");
+                    b.Property<TimeSpan>("Time")
+                        .HasColumnType("time");
 
                     b.HasKey("ExerciseId");
 
@@ -88,9 +91,12 @@ namespace crm.Migrations
 
                     b.Property<string>("GroupName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("GroupId");
+
+                    b.HasIndex("GroupName")
+                        .IsUnique();
 
                     b.ToTable("Group");
                 });
@@ -127,6 +133,9 @@ namespace crm.Migrations
 
                     b.HasIndex("GroupId");
 
+                    b.HasIndex("RecordBook")
+                        .IsUnique();
+
                     b.ToTable("Student");
                 });
 
@@ -140,9 +149,12 @@ namespace crm.Migrations
 
                     b.Property<string>("SubjectName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("SubjectId");
+
+                    b.HasIndex("SubjectName")
+                        .IsUnique();
 
                     b.ToTable("Subject");
                 });

@@ -18,9 +18,8 @@ namespace crm.Models
         public int GroupID { get; set; }
 
         [Required]
-        [DataType(DataType.Time)]
         [TimeRange]
-        public DateTime Time { get; set; }
+        public TimeSpan Time { get; set; }
 
         [Required]
         public DayOfWeek DayOfWeek { get; set; }
@@ -35,18 +34,24 @@ namespace crm.Models
         {
             public override bool IsValid(object value)
             {
-                if (value is DateTime time)
+                if (value is TimeSpan time)
                 {
                     // Проверяем, что значение соответствует одному из заданных времен
-                    return time.TimeOfDay == new TimeSpan(8, 20, 0) ||
-                           time.TimeOfDay == new TimeSpan(10, 00, 0) ||
-                           time.TimeOfDay == new TimeSpan(12, 05, 0) ||
-                           time.TimeOfDay == new TimeSpan(13, 50, 0) ||
-                           time.TimeOfDay == new TimeSpan(15, 35, 0);
+                    return time == new TimeSpan(8, 20, 0) ||
+                           time == new TimeSpan(10, 00, 0) ||
+                           time == new TimeSpan(12, 05, 0) ||
+                           time == new TimeSpan(13, 50, 0) ||
+                           time == new TimeSpan(15, 35, 0);
                 }
 
                 return false;
             }
         }
+        public override string ToString()
+        {
+            return $"Предмет: {Subject.SubjectName}\nПреподаватель: {Teacher.TeacherSurname} {Teacher.TeacherFirstName} {Teacher.TeacherPatronymic}\nАудитория: {Classroom.ClassroomName}\nГруппа: {Group.GroupName}";
+        }
+
+
     }
 }

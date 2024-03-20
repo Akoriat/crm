@@ -1,33 +1,30 @@
-﻿@model IEnumerable<crm.Models.Student>
+﻿@model IEnumerable<Student>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Students";
 }
 
-<h1>Index</h1>
+<h1>Студенты</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.StudentFirstName)
+                Имя
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StudentSurname)
+                Фамилия
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StudentPatronymic)
+                Отчество
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RecordBook)
+                Номер зачётки
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Group)
+                Группа
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -46,12 +43,7 @@
                 @Html.DisplayFor(modelItem => item.RecordBook)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Group.GroupId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.StudentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
+                @Html.DisplayFor(modelItem => item.Group.GroupName)
             </td>
         </tr>
 }

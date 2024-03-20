@@ -1,10 +1,11 @@
-﻿
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileSystemGlobbing.Internal;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace crm.Models
 {
+    [Index(nameof(GroupName), IsUnique = true)]
     public class Group
     {
         [Key]

@@ -1,20 +1,15 @@
-﻿@model Association
-@{
-    ViewData["Title"] = "Home Page";
-    ViewBag.Title = "Lexa";
+﻿@{
+    ViewData["Title"] = "Группы";
 }
-
 <script>
     function groupChanged(selectElement) {
         var selectedGroupId = selectElement.value;
-        alert("функцииияияиия");
         $.ajax({
             type: "GET",
-            url: "/Home/GetGroupData",
+            url: "Home/GetGroupData",
             data: { groupId: selectedGroupId },
             success: function (data) {
-                alert("ФункциЯ работает");
-                $('#oleg' table).html(data);
+                $('#oleg').html(data);
             },
             error: function () {
                 alert("Ошибка при выполнении запроса");
@@ -24,71 +19,9 @@
 </script>
 
 
-
 <h1>Расписание</h1>
 
 <div>
     @Html.DropDownList("Group", ViewBag.GroupList as SelectList, "Выберите группу", new { @class = "form-control", onchange = "groupChanged(this)"})
 </div>
-<div id="oleg">
-    @Html.Partial("_TablePartialView")
-   @*  <table>
-        <thead>
-            <tr>
-                <th>Время</th>
-                <th>Понедельник</th>
-                <th>Вторник</th>
-                <th>Среда</th>
-                <th>Четверг</th>
-                <th>Пятница</th>
-                <th>Суббота</th>
-            </tr>
-        </thead>
-        <tr>
-            <th>8:20 - 9:50</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <th>10:00 - 11:35</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <th>12:05 - 13:40</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <th>13:50 - 15:25</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <th>15:35 - 17:10</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table> *@
-
-</div>
+<div id="oleg">Расписание</div>
