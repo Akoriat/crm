@@ -6,7 +6,7 @@
         var selectedTeacherId = selectElement.value;
         $.ajax({
             type: "GET",
-            url: "Home/GetTeacherData",
+            url: "GetTeacherData",
             data: { teacherId: selectedTeacherId },
             success: function (data) {
                 $('#lexa').html(data);
@@ -18,11 +18,67 @@
     }
 </script>
 
-
-<h1>Расписание</h1>
-
 <div>
     @Html.DropDownList("Teacher", ViewBag.TeacherList as SelectList, "Выберите преподавателя", new { @class = "form-control", onchange = "teacherChanged(this)" })
 </div>
-<div id="lexa">Расписание</div>
+<div id="lexa">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Время</th>
+                <th scope="col">Понедельник</th>
+                <th scope="col">Вторник</th>
+                <th scope="col">Среда</th>
+                <th scope="col">Четверг</th>
+                <th scope="col">Пятница</th>
+                <th scope="col">Суббота</th>
+            </tr>
+        </thead>
+        <tr>
+            <th scope="row">08:20 - 09:50</th>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+        </tr>
+        <tr>
+            <th scope="row">10:00 - 11:35</th>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+        </tr>
+        <tr>
+            <th scope="row">12:05 - 13:40</th>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+        </tr>
+        <tr>
+            <th scope="row">13:50 - 15:25</th>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+        </tr>
+        <tr>
+            <th scope="row">15:35 - 17:10</th>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+        </tr>
+    </table>
+</div>
 

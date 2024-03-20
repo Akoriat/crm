@@ -49,7 +49,7 @@ namespace crm.Models
         }
         public override string ToString()
         {
-            return $"Предмет: {Subject.SubjectName}\nПреподаватель: {Teacher.TeacherSurname} {Teacher.TeacherFirstName} {Teacher.TeacherPatronymic}\nАудитория: {Classroom.ClassroomName}\nГруппа: {Group.GroupName}";
+            return $"{Subject.SubjectName}\n{Teacher.TeacherSurname} {Teacher.TeacherFirstName} {Teacher.TeacherPatronymic}\nАудитория: {Classroom.ClassroomName}\nГруппа: {Group.GroupName}";
         }
 
 

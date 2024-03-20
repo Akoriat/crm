@@ -18,10 +18,66 @@
     }
 </script>
 
-
-<h1>Расписание</h1>
-
 <div>
     @Html.DropDownList("Group", ViewBag.GroupList as SelectList, "Выберите группу", new { @class = "form-control", onchange = "groupChanged(this)"})
 </div>
-<div id="oleg">Расписание</div>
+<div id="oleg">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Время</th>
+                <th scope="col">Понедельник</th>
+                <th scope="col">Вторник</th>
+                <th scope="col">Среда</th>
+                <th scope="col">Четверг</th>
+                <th scope="col">Пятница</th>
+                <th scope="col">Суббота</th>
+            </tr>
+        </thead>
+        <tr>
+            <th scope="row">08:20 - 09:50</th>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+        </tr>
+        <tr>
+            <th scope="row">10:00 - 11:35</th>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+        </tr>
+        <tr>
+            <th scope="row">12:05 - 13:40</th>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+        </tr>
+        <tr>
+            <th scope="row">13:50 - 15:25</th>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+        </tr>
+        <tr>
+            <th scope="row">15:35 - 17:10</th>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+            <td><pre></pre></td>
+        </tr>
+    </table>
+</div>

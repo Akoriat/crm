@@ -3,20 +3,20 @@
     
 }
 
-<table>
+<table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th>Время</th>
-            <th>Понедельник</th>
-            <th>Вторник</th>
-            <th>Среда</th>
-            <th>Четверг</th>
-            <th>Пятница</th>
-            <th>Суббота</th>
+            <th scope="col">Время</th>
+            <th scope="col">Понедельник</th>
+            <th scope="col">Вторник</th>
+            <th scope="col">Среда</th>
+            <th scope="col">Четверг</th>
+            <th scope="col">Пятница</th>
+            <th scope="col">Суббота</th>
         </tr>
     </thead>
     <tr>
-        <th>08:20 - 09:50</th>
+        <th scope="row">08:20 - 09:50</th>
         <td><pre>@ViewData["p820"]</pre></td>
         <td><pre>@ViewData["v820"]</pre></td>
         <td><pre>@ViewData["s820"]</pre></td>
@@ -25,7 +25,7 @@
         <td><pre>@ViewData["sb820"]</pre></td>
     </tr>
     <tr>
-        <th>10:00 - 11:35</th>
+        <th scope="row">10:00 - 11:35</th>
         <td><pre>@ViewData["p1000"]</pre></td>
         <td><pre>@ViewData["v1000"]</pre></td>
         <td><pre>@ViewData["s1000"]</pre></td>
@@ -34,7 +34,7 @@
         <td><pre>@ViewData["sb1000"]</pre></td>
     </tr>
     <tr>
-        <th>12:05 - 13:40</th>
+        <th scope ="row">12:05 - 13:40</th>
         <td><pre>@ViewData["p1205"]</pre></td>
         <td><pre>@ViewData["v1205"]</pre></td>
         <td><pre>@ViewData["s1205"]</pre></td>
@@ -43,7 +43,7 @@
         <td><pre>@ViewData["sb1205"]</pre></td>
     </tr>
     <tr>
-        <th>13:50 - 15:25</th>
+        <th scope="row">13:50 - 15:25</th>
         <td><pre>@ViewData["p1350"]</pre></td>
         <td><pre>@ViewData["v1350"]</pre></td>
         <td><pre>@ViewData["s1350"]</pre></td>
@@ -52,7 +52,7 @@
         <td><pre>@ViewData["sb1350"]</pre></td>
     </tr>
     <tr>
-        <th>15:35 - 17:10</th>
+        <th scope="row">15:35 - 17:10</th>
         <td><pre>@ViewData["p1535"]</pre></td>
         <td><pre>@ViewData["v1535"]</pre></td>
         <td><pre>@ViewData["s1535"]</pre></td>

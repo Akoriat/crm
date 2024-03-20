@@ -6,7 +6,8 @@
         var selectedTeacherId = selectElement.value;
         $.ajax({
             type: "GET",
-            url: "Admin/Home/GetTeacherData",
+            //КОНКАТЕНАЦИЯ АДРЕСА К НЫНЕШНЕМУ КОНТРОЛЛЕРУ
+            url: "GetTeacherData",
             data: { teacherId: selectedTeacherId },
             success: function (data) {
                 $('#oleg2').html(data);
