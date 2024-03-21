@@ -137,7 +137,7 @@ namespace crm.Areas.Admin.Controllers
         public ActionResult GetTeacherData(int teacherId)
         {
             var exercisess = _lexa.Exercise
-                .Where(x => x.GroupID == teacherId)
+                .Where(x => x.TeacherID == teacherId)
                 .Include(g => g.Group)
                 .Include(s => s.Subject)
                 .Include(c => c.Classroom)
